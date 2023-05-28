@@ -1,5 +1,3 @@
-# WebII
-Projeto para a avaliação na matéria de Web II com o professor Francisco Santos do IFS Lagarto
 
 REQUISITOS
 
