@@ -1,3 +1,4 @@
+![Relacionamento](https://github.com/Jovinull/WebII/assets/80206695/2b50fdab-6574-4722-8110-7497866428da)
 
 REQUISITOS
 
