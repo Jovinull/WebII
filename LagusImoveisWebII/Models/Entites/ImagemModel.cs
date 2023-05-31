@@ -11,10 +11,9 @@ namespace LagusImoveisWebII.Models.Entites
         public byte[] Imagem { get; set; }
 
         public int PropriedadeId { get; set; }
-        
-        //public PropriedadeModel PropriedadeModel { get; set; }
+        public PropriedadeModel PropriedadeModel { get; set; }
 
-        public List<PropriedadeModel> PropriedadeModel { get; set; }
+
 
     }
     }

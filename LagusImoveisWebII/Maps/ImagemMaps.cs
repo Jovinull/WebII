@@ -19,9 +19,8 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.Imagem).HasColumnName("imagem").HasColumnType("bytea").IsRequired();
 
 
-           
-            //builder.Property(x => x.PropriedadeId).HasColumnName("id_propriedade").IsRequired();
-            //builder.HasOne(x => x.PropriedadeModel).WithMany(x =>x.ImagemModel).HasForeignKey(x => x.PropriedadeId).IsRequired();
+            builder.Property(x => x.PropriedadeId).HasColumnName("id_Propriedade").IsRequired();
+            builder.HasOne(x => x.PropriedadeModel).WithMany(x => x.ImagemModel).HasForeignKey(x => x.PropriedadeId).IsRequired();
 
 
 

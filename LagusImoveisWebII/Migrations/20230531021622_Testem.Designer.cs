@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LagusImoveisWebII.Migrations
 {
     [DbContext(typeof(LagusImoveisWebIIContext))]
-    [Migration("20230528213401_inicial")]
-    partial class inicial
+    [Migration("20230531021622_Testem")]
+    partial class Testem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,9 +88,12 @@ namespace LagusImoveisWebII.Migrations
                         .HasColumnName("imagem");
 
                     b.Property<int>("PropriedadeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id_Propriedade");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PropriedadeId");
 
                     b.ToTable("imagem", (string)null);
                 });
@@ -109,20 +112,13 @@ namespace LagusImoveisWebII.Migrations
                         .HasColumnType("varchar(300)")
                         .HasColumnName("descricao");
 
-                    b.Property<int>("ImagemId")
-                        .HasColumnType("integer")
-                        .HasColumnName("id_imagem");
-
                     b.Property<int>("UsuarioId")
                         .HasColumnType("integer")
                         .HasColumnName("id_usuario");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ImagemId");
-
-                    b.HasIndex("UsuarioId")
-                        .IsUnique();
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("propriedade", (string)null);
                 });
@@ -254,21 +250,24 @@ namespace LagusImoveisWebII.Migrations
                     b.Navigation("PropriedadeModel");
                 });
 
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.ImagemModel", b =>
+                {
+                    b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
+                        .WithMany("ImagemModel")
+                        .HasForeignKey("PropriedadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PropriedadeModel");
+                });
+
             modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.ImagemModel", "ImagemModel")
-                        .WithMany("PropriedadeModel")
-                        .HasForeignKey("ImagemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("LagusImoveisWebII.Models.Entites.UsuarioModel", "UsuarioModel")
-                        .WithOne()
-                        .HasForeignKey("LagusImoveisWebII.Models.Entites.PropriedadeModel", "UsuarioId")
+                        .WithMany("PropriedadeModel")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ImagemModel");
 
                     b.Navigation("UsuarioModel");
                 });
@@ -303,7 +302,12 @@ namespace LagusImoveisWebII.Migrations
                     b.Navigation("PropriedadeModel");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.ImagemModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
+                {
+                    b.Navigation("ImagemModel");
+                });
+
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.UsuarioModel", b =>
                 {
                     b.Navigation("PropriedadeModel");
                 });

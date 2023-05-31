@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projeto DisciplinaWeb2\\WebII-master\\LagusImoveisWebII\\LagusImoveisWebII.csproj": {}
+    "C:\\Users\\gabri\\Videos\\ATUALIZADOWEB2\\LagusImoveisWebII\\LagusImoveisWebII.csproj": {}
   },
   "projects": {
-    "C:\\Projeto DisciplinaWeb2\\WebII-master\\LagusImoveisWebII\\LagusImoveisWebII.csproj": {
+    "C:\\Users\\gabri\\Videos\\ATUALIZADOWEB2\\LagusImoveisWebII\\LagusImoveisWebII.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projeto DisciplinaWeb2\\WebII-master\\LagusImoveisWebII\\LagusImoveisWebII.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\Videos\\ATUALIZADOWEB2\\LagusImoveisWebII\\LagusImoveisWebII.csproj",
         "projectName": "LagusImoveisWebII",
-        "projectPath": "C:\\Projeto DisciplinaWeb2\\WebII-master\\LagusImoveisWebII\\LagusImoveisWebII.csproj",
-        "packagesPath": "C:\\Users\\Ítalo\\.nuget\\packages\\",
-        "outputPath": "C:\\Projeto DisciplinaWeb2\\WebII-master\\LagusImoveisWebII\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\Videos\\ATUALIZADOWEB2\\LagusImoveisWebII\\LagusImoveisWebII.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\Videos\\ATUALIZADOWEB2\\LagusImoveisWebII\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ítalo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,24 +80,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -106,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

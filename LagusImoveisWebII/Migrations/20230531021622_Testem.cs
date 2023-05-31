@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿Uusing Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -6,25 +6,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LagusImoveisWebII.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class Testem : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "imagem",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    imagem = table.Column<byte[]>(type: "bytea", nullable: false),
-                    PropriedadeId = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_imagem", x => x.id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "tipo_situacao",
                 columns: table => new
@@ -62,18 +48,11 @@ namespace LagusImoveisWebII.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     descricao = table.Column<string>(type: "varchar(300)", nullable: false),
-                    id_usuario = table.Column<int>(type: "integer", nullable: false),
-                    id_imagem = table.Column<int>(type: "integer", nullable: false)
+                    id_usuario = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_propriedade", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_propriedade_imagem_id_imagem",
-                        column: x => x.id_imagem,
-                        principalTable: "imagem",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_propriedade_usuario_id_usuario",
                         column: x => x.id_usuario,
@@ -102,6 +81,26 @@ namespace LagusImoveisWebII.Migrations
                     table.ForeignKey(
                         name: "FK_endereco_propriedade_id_propriedade",
                         column: x => x.id_propriedade,
+                        principalTable: "propriedade",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "imagem",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    imagem = table.Column<byte[]>(type: "bytea", nullable: false),
+                    id_Propriedade = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_imagem", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_imagem_propriedade_id_Propriedade",
+                        column: x => x.id_Propriedade,
                         principalTable: "propriedade",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -161,15 +160,14 @@ namespace LagusImoveisWebII.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_propriedade_id_imagem",
-                table: "propriedade",
-                column: "id_imagem");
+                name: "IX_imagem_id_Propriedade",
+                table: "imagem",
+                column: "id_Propriedade");
 
             migrationBuilder.CreateIndex(
                 name: "IX_propriedade_id_usuario",
                 table: "propriedade",
-                column: "id_usuario",
-                unique: true);
+                column: "id_usuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_propriedade_tipo_situacao_id_propriedade",
@@ -197,6 +195,9 @@ namespace LagusImoveisWebII.Migrations
                 name: "endereco");
 
             migrationBuilder.DropTable(
+                name: "imagem");
+
+            migrationBuilder.DropTable(
                 name: "propriedade_tipo_situacao");
 
             migrationBuilder.DropTable(
@@ -207,9 +208,6 @@ namespace LagusImoveisWebII.Migrations
 
             migrationBuilder.DropTable(
                 name: "propriedade");
-
-            migrationBuilder.DropTable(
-                name: "imagem");
 
             migrationBuilder.DropTable(
                 name: "usuario");

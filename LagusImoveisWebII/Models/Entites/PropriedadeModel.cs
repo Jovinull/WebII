@@ -12,8 +12,9 @@ namespace LagusImoveisWebII.Models.Entites
         public int UsuarioId { get; set; }
         public UsuarioModel UsuarioModel { get; set; }
 
-        public int ImagemId { get; set; }
-        public ImagemModel ImagemModel { get; set; }
+        public List<ImagemModel> ImagemModel { get; set; }
 
+       
+       
     }
 }
