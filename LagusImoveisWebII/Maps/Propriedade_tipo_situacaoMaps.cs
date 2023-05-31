@@ -19,11 +19,11 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.Valor).HasColumnName("valor").HasPrecision(7,2).IsRequired();
 
             builder.Property(x => x.PropriedadeId).HasColumnName("id_propriedade").IsRequired();
-            builder.HasOne(x => x.PropriedadeModel).WithOne().HasForeignKey<Propriedade_tipo_situacaoModel>(x => x.PropriedadeId).IsRequired();
+            builder.HasOne(x => x.PropriedadeModel).WithMany(x => x.Propriedade_tipo_situacaoModel).HasForeignKey(x => x.PropriedadeId).IsRequired();
+      
 
             builder.Property(x => x.Tipo_situacaoId).HasColumnName("id_Tipo_situacao").IsRequired();
-            builder.HasOne(x => x.Tipo_situacaoModel).WithOne().HasForeignKey<Propriedade_tipo_situacaoModel>(x => x.Tipo_situacaoId).IsRequired();
-
+            builder.HasOne(x => x.Tipo_situacaoModel).WithMany(x => x.Propriedade_tipo_situacaoModel).HasForeignKey(x => x.Tipo_situacaoId).IsRequired();
 
 
         }

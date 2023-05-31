@@ -1,4 +1,4 @@
-﻿Uusing Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LagusImoveisWebII.Migrations
 {
     /// <inheritdoc />
-    public partial class Testem : Migration
+    public partial class T : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -172,14 +172,12 @@ namespace LagusImoveisWebII.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_propriedade_tipo_situacao_id_propriedade",
                 table: "propriedade_tipo_situacao",
-                column: "id_propriedade",
-                unique: true);
+                column: "id_propriedade");
 
             migrationBuilder.CreateIndex(
                 name: "IX_propriedade_tipo_situacao_id_Tipo_situacao",
                 table: "propriedade_tipo_situacao",
-                column: "id_Tipo_situacao",
-                unique: true);
+                column: "id_Tipo_situacao");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tipo_imovel_id_propriedade",

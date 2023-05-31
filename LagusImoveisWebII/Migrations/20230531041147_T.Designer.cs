@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LagusImoveisWebII.Migrations
 {
     [DbContext(typeof(LagusImoveisWebIIContext))]
-    [Migration("20230531021622_Testem")]
-    partial class Testem
+    [Migration("20230531041147_T")]
+    partial class T
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,11 +147,9 @@ namespace LagusImoveisWebII.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PropriedadeId")
-                        .IsUnique();
+                    b.HasIndex("PropriedadeId");
 
-                    b.HasIndex("Tipo_situacaoId")
-                        .IsUnique();
+                    b.HasIndex("Tipo_situacaoId");
 
                     b.ToTable("propriedade_tipo_situacao", (string)null);
                 });
@@ -275,14 +273,14 @@ namespace LagusImoveisWebII.Migrations
             modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade_tipo_situacaoModel", b =>
                 {
                     b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
-                        .WithOne()
-                        .HasForeignKey("LagusImoveisWebII.Models.Entites.Propriedade_tipo_situacaoModel", "PropriedadeId")
+                        .WithMany("Propriedade_tipo_situacaoModel")
+                        .HasForeignKey("PropriedadeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LagusImoveisWebII.Models.Entites.Tipo_situacaoModel", "Tipo_situacaoModel")
-                        .WithOne()
-                        .HasForeignKey("LagusImoveisWebII.Models.Entites.Propriedade_tipo_situacaoModel", "Tipo_situacaoId")
+                        .WithMany("Propriedade_tipo_situacaoModel")
+                        .HasForeignKey("Tipo_situacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -305,6 +303,13 @@ namespace LagusImoveisWebII.Migrations
             modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
                 {
                     b.Navigation("ImagemModel");
+
+                    b.Navigation("Propriedade_tipo_situacaoModel");
+                });
+
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Tipo_situacaoModel", b =>
+                {
+                    b.Navigation("Propriedade_tipo_situacaoModel");
                 });
 
             modelBuilder.Entity("LagusImoveisWebII.Models.Entites.UsuarioModel", b =>

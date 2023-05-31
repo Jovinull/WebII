@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LagusImoveisWebII",
-    "\\LagusImoveisWebII\\Models",
-    "\\LagusImoveisWebII\\Models\\Entites"
+    "\\LagusImoveisWebII\\Controllers",
+    "\\LagusImoveisWebII\\Maps",
+    "\\LagusImoveisWebII\\Migrations"
   ],
-  "SelectedNode": "\\LagusImoveisWebII\\Models\\Entites\\PropriedadeModel.cs",
+  "SelectedNode": "\\LagusImoveisWebII\\Migrations\\20230531041147_T.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -13,8 +13,11 @@ namespace LagusImoveisWebII.Models.Entites
         public UsuarioModel UsuarioModel { get; set; }
 
         public List<ImagemModel> ImagemModel { get; set; }
+        public List<Propriedade_tipo_situacaoModel> Propriedade_tipo_situacaoModel { get; set; }
 
-       
-       
+
+
+
+
     }
 }

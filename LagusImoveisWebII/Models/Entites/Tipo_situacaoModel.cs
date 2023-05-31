@@ -10,5 +10,7 @@ namespace LagusImoveisWebII.Models.Entites
     {
         public string Descricao { get; set; }
 
+        public List<Propriedade_tipo_situacaoModel> Propriedade_tipo_situacaoModel { get; set; }
+
     }
 }

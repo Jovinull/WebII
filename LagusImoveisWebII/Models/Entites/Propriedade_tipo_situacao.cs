@@ -10,10 +10,10 @@ namespace LagusImoveisWebII.Models.Entites
     {
 
         public decimal Valor { get; set; }
-        public int PropriedadeId { get; set; }
-        public PropriedadeModel PropriedadeModel { get; set; }
 
+        public int PropriedadeId { get; set; }
         public int Tipo_situacaoId { get; set; }
+        public PropriedadeModel PropriedadeModel { get; set; }
         public Tipo_situacaoModel Tipo_situacaoModel { get; set; }
     }
 }

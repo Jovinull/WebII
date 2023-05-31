@@ -20,7 +20,7 @@ namespace LagusImoveisWebII.Maps
 
             builder.Property(x => x.PropriedadeId).HasColumnName("id_propriedade").IsRequired();
             builder.HasOne(x => x.PropriedadeModel).WithOne().HasForeignKey<Tipo_imovelModel>(x => x.PropriedadeId).IsRequired();
-
+            //um para um errado
 
         }
     }
