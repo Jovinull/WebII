@@ -1,11 +1,17 @@
 using LagusImoveisWebII.Context;
+using LagusImoveisWebII.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(Options => {
+    Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+ });
+builder.Services.AddScoped<IBaseRepository, BaseRepository>();
+builder.Services.AddScoped<IPropriedadeRepository, PropriedadeRepository>();
 
 builder.Services.AddDbContext<LagusImoveisWebIIContext>(options =>
 {
