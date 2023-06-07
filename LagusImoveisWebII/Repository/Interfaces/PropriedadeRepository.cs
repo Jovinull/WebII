@@ -17,15 +17,15 @@ namespace LagusImoveisWebII.Repository.Interfaces
        
         public async Task<IEnumerable<PropriedadeDto>>GetPropriedadeAsync()
         {
-            return await _context.Propriedade_tipo_modelSet
+            return await _context.PropriedadeSet
                 .Select( x => new PropriedadeDto { 
                 Id = x.Id,
                     Descricao = x.Descricao,
-                    ImagemModel = x.ImagemModel,
-                    UsuarioModel = new UsuarioModel {
-                        Nome = x.UsuarioModel.Nome,
-                        Telefone = x.UsuarioModel.Telefone},
-                    Propriedade_tipo_situacaoModel = x.Propriedade_tipo_situacaoModel}).ToListAsync();
+                    Imagem = x.Imagem,
+                    Usuario = new Usuario {
+                        Nome = x.Usuario.Nome,
+                        Telefone = x.Usuario.Telefone},
+                    PropriedadeTipoSituacao = x.PropriedadeTipoSituacao}).ToListAsync();
 
         }
     }

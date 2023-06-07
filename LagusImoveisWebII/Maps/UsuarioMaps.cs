@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LagusImoveisWebII.Maps
 {
-    public class UsuarioMaps : BaseMap<UsuarioModel>
+    public class UsuarioMaps : BaseMap<Usuario>
     {
         public UsuarioMaps() : base("usuario")
         {
 
         }
-        public override void Configure(EntityTypeBuilder<UsuarioModel> builder)
+        public override void Configure(EntityTypeBuilder<Usuario> builder)
         {
             base.Configure(builder);
 

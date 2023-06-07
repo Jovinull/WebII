@@ -7,13 +7,13 @@ namespace LagusImoveisWebII.Context
     {
         public LagusImoveisWebIIContext(DbContextOptions<LagusImoveisWebIIContext> options) : base(options) {}
 
-        public DbSet<UsuarioModel> UsuarioSet { get; set; }
-        public DbSet<EnderecoModel> EnderecoSet { get; set; }
-        public DbSet<ImagemModel> ImagemSet { get; set; }
-        public DbSet<Propriedade_tipo_situacaoModel> Propriedade_tipo_situacaoSet { get; set; }
-        public DbSet<PropriedadeModel> Propriedade_tipo_modelSet { get; set; }
-        public DbSet<Tipo_imovelModel> Tipo_ImovelModelSet { get; set; }
-        public DbSet<Tipo_situacaoModel> Tipo_situacaoSet { get; set; }
+        public DbSet<Usuario> UsuarioSet { get; set; }
+        public DbSet<Endereco> EnderecoSet { get; set; }
+        public DbSet<Imagem> ImagemSet { get; set; }
+        public DbSet<PropriedadeTipoSituacao> PropriedadeTipoSituacaoSet { get; set; }
+        public DbSet<Propriedade> PropriedadeSet { get; set; }
+        public DbSet<TipoImovel> TipoImovelSet { get; set; }
+        public DbSet<TipoSituacao> TipoSituacaoSet { get; set; }
      
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

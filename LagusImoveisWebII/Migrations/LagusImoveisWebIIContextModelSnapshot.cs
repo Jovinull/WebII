@@ -21,7 +21,7 @@ namespace LagusImoveisWebII.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.EnderecoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Endereco", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace LagusImoveisWebII.Migrations
 
                     b.Property<int>("PropriedadeId")
                         .HasColumnType("integer")
-                        .HasColumnName("id_propriedade");
+                        .HasColumnName("idPropriedade");
 
                     b.Property<string>("Rua")
                         .IsRequired()
@@ -70,7 +70,7 @@ namespace LagusImoveisWebII.Migrations
                     b.ToTable("endereco", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.ImagemModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Imagem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,14 +79,14 @@ namespace LagusImoveisWebII.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<byte[]>("Imagem")
+                    b.Property<byte[]>("Imagens")
                         .IsRequired()
                         .HasColumnType("bytea")
                         .HasColumnName("imagem");
 
                     b.Property<int>("PropriedadeId")
                         .HasColumnType("integer")
-                        .HasColumnName("id_Propriedade");
+                        .HasColumnName("idPropriedade");
 
                     b.HasKey("Id");
 
@@ -95,7 +95,7 @@ namespace LagusImoveisWebII.Migrations
                     b.ToTable("imagem", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,18 +109,24 @@ namespace LagusImoveisWebII.Migrations
                         .HasColumnType("varchar(300)")
                         .HasColumnName("descricao");
 
+                    b.Property<int>("TipoImovelID")
+                        .HasColumnType("integer")
+                        .HasColumnName("idTipoImovel");
+
                     b.Property<int>("UsuarioId")
                         .HasColumnType("integer")
-                        .HasColumnName("id_usuario");
+                        .HasColumnName("idUsuario");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TipoImovelID");
 
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("propriedade", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade_tipo_situacaoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeTipoSituacao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -131,11 +137,11 @@ namespace LagusImoveisWebII.Migrations
 
                     b.Property<int>("PropriedadeId")
                         .HasColumnType("integer")
-                        .HasColumnName("id_propriedade");
+                        .HasColumnName("idpropriedade");
 
-                    b.Property<int>("Tipo_situacaoId")
+                    b.Property<int>("TipoSituacaoId")
                         .HasColumnType("integer")
-                        .HasColumnName("id_Tipo_situacao");
+                        .HasColumnName("idTipoSituacao");
 
                     b.Property<decimal>("Valor")
                         .HasPrecision(7, 2)
@@ -146,38 +152,12 @@ namespace LagusImoveisWebII.Migrations
 
                     b.HasIndex("PropriedadeId");
 
-                    b.HasIndex("Tipo_situacaoId");
+                    b.HasIndex("TipoSituacaoId");
 
                     b.ToTable("propriedade_tipo_situacao", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Tipo_imovelModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)")
-                        .HasColumnName("descricao");
-
-                    b.Property<int>("PropriedadeId")
-                        .HasColumnType("integer")
-                        .HasColumnName("id_propriedade");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PropriedadeId")
-                        .IsUnique();
-
-                    b.ToTable("tipo_imovel", (string)null);
-                });
-
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Tipo_situacaoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.TipoImovel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -193,10 +173,29 @@ namespace LagusImoveisWebII.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tipo_situacao", (string)null);
+                    b.ToTable("tipoImovel", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.UsuarioModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.TipoSituacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("descricao");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tipoSituacao", (string)null);
+                });
+
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -234,84 +233,86 @@ namespace LagusImoveisWebII.Migrations
                     b.ToTable("usuario", (string)null);
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.EnderecoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Endereco", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
+                    b.HasOne("LagusImoveisWebII.Models.Entites.Propriedade", "Propriedade")
                         .WithOne()
-                        .HasForeignKey("LagusImoveisWebII.Models.Entites.EnderecoModel", "PropriedadeId")
+                        .HasForeignKey("LagusImoveisWebII.Models.Entites.Endereco", "PropriedadeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PropriedadeModel");
+                    b.Navigation("Propriedade");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.ImagemModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Imagem", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
-                        .WithMany("ImagemModel")
+                    b.HasOne("LagusImoveisWebII.Models.Entites.Propriedade", "Propriedade")
+                        .WithMany("Imagem")
                         .HasForeignKey("PropriedadeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PropriedadeModel");
+                    b.Navigation("Propriedade");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.UsuarioModel", "UsuarioModel")
-                        .WithMany("PropriedadeModel")
+                    b.HasOne("LagusImoveisWebII.Models.Entites.TipoImovel", "TipoImovel")
+                        .WithMany("Propriedade")
+                        .HasForeignKey("TipoImovelID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LagusImoveisWebII.Models.Entites.Usuario", "Usuario")
+                        .WithMany("Propriedade")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UsuarioModel");
+                    b.Navigation("TipoImovel");
+
+                    b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade_tipo_situacaoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeTipoSituacao", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
-                        .WithMany("Propriedade_tipo_situacaoModel")
+                    b.HasOne("LagusImoveisWebII.Models.Entites.Propriedade", "Propriedade")
+                        .WithMany("PropriedadeTipoSituacao")
                         .HasForeignKey("PropriedadeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LagusImoveisWebII.Models.Entites.Tipo_situacaoModel", "Tipo_situacaoModel")
-                        .WithMany("Propriedade_tipo_situacaoModel")
-                        .HasForeignKey("Tipo_situacaoId")
+                    b.HasOne("LagusImoveisWebII.Models.Entites.TipoSituacao", "TipoSituacao")
+                        .WithMany("PropriedadeTipoSituacao")
+                        .HasForeignKey("TipoSituacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("PropriedadeModel");
+                    b.Navigation("Propriedade");
 
-                    b.Navigation("Tipo_situacaoModel");
+                    b.Navigation("TipoSituacao");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Tipo_imovelModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Propriedade", b =>
                 {
-                    b.HasOne("LagusImoveisWebII.Models.Entites.PropriedadeModel", "PropriedadeModel")
-                        .WithOne()
-                        .HasForeignKey("LagusImoveisWebII.Models.Entites.Tipo_imovelModel", "PropriedadeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Imagem");
 
-                    b.Navigation("PropriedadeModel");
+                    b.Navigation("PropriedadeTipoSituacao");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.PropriedadeModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.TipoImovel", b =>
                 {
-                    b.Navigation("ImagemModel");
-
-                    b.Navigation("Propriedade_tipo_situacaoModel");
+                    b.Navigation("Propriedade");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Tipo_situacaoModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.TipoSituacao", b =>
                 {
-                    b.Navigation("Propriedade_tipo_situacaoModel");
+                    b.Navigation("PropriedadeTipoSituacao");
                 });
 
-            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.UsuarioModel", b =>
+            modelBuilder.Entity("LagusImoveisWebII.Models.Entites.Usuario", b =>
                 {
-                    b.Navigation("PropriedadeModel");
+                    b.Navigation("Propriedade");
                 });
 #pragma warning restore 612, 618
         }

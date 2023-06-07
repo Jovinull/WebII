@@ -1,12 +1,12 @@
 ﻿namespace LagusImoveisWebII.Models.Entites
 {
-    public class UsuarioModel : Base
+    public class Usuario : Base
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set;}
         public string Email { get; set;}
         public int Telefone { get; set;}
         public string Senha { get; set;}
-        public List<PropriedadeModel> PropriedadeModel { get; set; }
+        public List<Propriedade> Propriedade { get; set; }
     }
 }

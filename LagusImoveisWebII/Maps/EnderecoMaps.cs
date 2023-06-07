@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LagusImoveisWebII.Maps
 {
-    public class EnderecoMaps : BaseMap<EnderecoModel>
+    public class EnderecoMaps : BaseMap<Endereco>
     {
         public EnderecoMaps() : base("endereco")
         {
 
         }
-        public override void Configure(EntityTypeBuilder<EnderecoModel> builder)
+        public override void Configure(EntityTypeBuilder<Endereco> builder)
         {
             base.Configure(builder);
 
@@ -24,8 +24,8 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.Cidade).HasColumnName("cidade").HasColumnType("varchar(20)").IsRequired();
 
 
-            builder.Property(x => x.PropriedadeId).HasColumnName("id_propriedade").IsRequired();
-            builder.HasOne(x => x.PropriedadeModel).WithOne().HasForeignKey<EnderecoModel>(x => x.PropriedadeId).IsRequired();
+            builder.Property(x => x.PropriedadeId).HasColumnName("idPropriedade").IsRequired();
+            builder.HasOne(x => x.Propriedade).WithOne().HasForeignKey<Endereco>(x => x.PropriedadeId).IsRequired();
 
 
 

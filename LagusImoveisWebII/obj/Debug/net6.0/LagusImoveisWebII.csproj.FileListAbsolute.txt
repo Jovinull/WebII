@@ -164,3 +164,5 @@ C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Microsof
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

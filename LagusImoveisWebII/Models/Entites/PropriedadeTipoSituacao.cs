@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace LagusImoveisWebII.Models.Entites
 {
  
-    public class Propriedade_tipo_situacaoModel : Base
+    public class PropriedadeTipoSituacao : Base
     {
 
         public decimal Valor { get; set; }
 
         public int PropriedadeId { get; set; }
-        public int Tipo_situacaoId { get; set; }
-        public PropriedadeModel PropriedadeModel { get; set; }
-        public Tipo_situacaoModel Tipo_situacaoModel { get; set; }
+        public int TipoSituacaoId { get; set; }
+        public Propriedade Propriedade { get; set; }
+        public TipoSituacao TipoSituacao { get; set; }
     }
 }

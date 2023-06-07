@@ -4,21 +4,23 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LagusImoveisWebII.Maps
 {
-    public class Tipo_situacaoMaps : BaseMap<Tipo_situacaoModel>
+    public class TipoImovelMaps : BaseMap<TipoImovel>
     {
-        public Tipo_situacaoMaps() : base("tipo_situacao")
+        public TipoImovelMaps() : base("tipoImovel")
         {
 
         }
-        public override void Configure(EntityTypeBuilder<Tipo_situacaoModel> builder)
+        public override void Configure(EntityTypeBuilder<TipoImovel> builder)
         {
             base.Configure(builder);
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Descricao).HasColumnName("descricao").HasColumnType("varchar(20)").IsRequired();
-           
+
+            
 
         }
     }
 }
+

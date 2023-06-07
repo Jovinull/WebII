@@ -1,6 +1,6 @@
 ﻿namespace LagusImoveisWebII.Models.Entites
 {
-    public class EnderecoModel: Base
+    public class Endereco: Base
     {
         public string Rua { get; set; }
         public int Numero { get; set; }
@@ -9,7 +9,7 @@
         public string Estado { get; set; }
         public string Cidade { get; set; }
         public int PropriedadeId { get; set; }
-        public PropriedadeModel PropriedadeModel { get; set; }
+        public Propriedade Propriedade { get; set; }
 
 
     }

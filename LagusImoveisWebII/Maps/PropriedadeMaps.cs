@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LagusImoveisWebII.Maps
 {
-    public class PropriedadeMaps : BaseMap<PropriedadeModel>
+    public class PropriedadeMaps : BaseMap<Propriedade>
     {
         public PropriedadeMaps() : base("propriedade")
         {
 
         }
-        public override void Configure(EntityTypeBuilder<PropriedadeModel> builder)
+        public override void Configure(EntityTypeBuilder<Propriedade> builder)
         {
             base.Configure(builder);
 
@@ -22,8 +22,13 @@ namespace LagusImoveisWebII.Maps
 
 
 
-            builder.Property(x => x.UsuarioId).HasColumnName("id_usuario");
-            builder.HasOne(x => x.UsuarioModel).WithMany(x => x.PropriedadeModel).HasForeignKey(x => x.UsuarioId); 
+            builder.Property(x => x.UsuarioId).HasColumnName("idUsuario");
+            builder.HasOne(x => x.Usuario).WithMany(x => x.Propriedade).HasForeignKey(x => x.UsuarioId);
+
+            builder.Property(x => x.TipoImovelID).HasColumnName("idTipoImovel");
+            builder.HasOne(x => x.TipoImovel).WithMany(x => x.Propriedade).HasForeignKey(x => x.TipoImovelID).IsRequired();
+
+
 
 
         }

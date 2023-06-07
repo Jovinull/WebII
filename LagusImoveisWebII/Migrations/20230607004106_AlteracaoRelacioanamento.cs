@@ -6,13 +6,13 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LagusImoveisWebII.Migrations
 {
     /// <inheritdoc />
-    public partial class T : Migration
+    public partial class AlteracaoRelacioanamento : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "tipo_situacao",
+                name: "tipoImovel",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -21,7 +21,20 @@ namespace LagusImoveisWebII.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tipo_situacao", x => x.id);
+                    table.PrimaryKey("PK_tipoImovel", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tipoSituacao",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    descricao = table.Column<string>(type: "varchar(20)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tipoSituacao", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,14 +61,21 @@ namespace LagusImoveisWebII.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     descricao = table.Column<string>(type: "varchar(300)", nullable: false),
-                    id_usuario = table.Column<int>(type: "integer", nullable: false)
+                    idUsuario = table.Column<int>(type: "integer", nullable: false),
+                    idTipoImovel = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_propriedade", x => x.id);
                     table.ForeignKey(
-                        name: "FK_propriedade_usuario_id_usuario",
-                        column: x => x.id_usuario,
+                        name: "FK_propriedade_tipoImovel_idTipoImovel",
+                        column: x => x.idTipoImovel,
+                        principalTable: "tipoImovel",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_propriedade_usuario_idUsuario",
+                        column: x => x.idUsuario,
                         principalTable: "usuario",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -73,14 +93,14 @@ namespace LagusImoveisWebII.Migrations
                     bairro = table.Column<string>(type: "varchar(30)", nullable: false),
                     estado = table.Column<string>(type: "varchar(20)", nullable: false),
                     cidade = table.Column<string>(type: "varchar(20)", nullable: false),
-                    id_propriedade = table.Column<int>(type: "integer", nullable: false)
+                    idPropriedade = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_endereco", x => x.id);
                     table.ForeignKey(
-                        name: "FK_endereco_propriedade_id_propriedade",
-                        column: x => x.id_propriedade,
+                        name: "FK_endereco_propriedade_idPropriedade",
+                        column: x => x.idPropriedade,
                         principalTable: "propriedade",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -93,14 +113,14 @@ namespace LagusImoveisWebII.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     imagem = table.Column<byte[]>(type: "bytea", nullable: false),
-                    id_Propriedade = table.Column<int>(type: "integer", nullable: false)
+                    idPropriedade = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_imagem", x => x.id);
                     table.ForeignKey(
-                        name: "FK_imagem_propriedade_id_Propriedade",
-                        column: x => x.id_Propriedade,
+                        name: "FK_imagem_propriedade_idPropriedade",
+                        column: x => x.idPropriedade,
                         principalTable: "propriedade",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -113,77 +133,56 @@ namespace LagusImoveisWebII.Migrations
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     valor = table.Column<decimal>(type: "numeric(7,2)", precision: 7, scale: 2, nullable: false),
-                    id_propriedade = table.Column<int>(type: "integer", nullable: false),
-                    id_Tipo_situacao = table.Column<int>(type: "integer", nullable: false)
+                    idpropriedade = table.Column<int>(type: "integer", nullable: false),
+                    idTipoSituacao = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_propriedade_tipo_situacao", x => x.id);
                     table.ForeignKey(
-                        name: "FK_propriedade_tipo_situacao_propriedade_id_propriedade",
-                        column: x => x.id_propriedade,
+                        name: "FK_propriedade_tipo_situacao_propriedade_idpropriedade",
+                        column: x => x.idpropriedade,
                         principalTable: "propriedade",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_propriedade_tipo_situacao_tipo_situacao_id_Tipo_situacao",
-                        column: x => x.id_Tipo_situacao,
-                        principalTable: "tipo_situacao",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "tipo_imovel",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    descricao = table.Column<string>(type: "varchar(20)", nullable: false),
-                    id_propriedade = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tipo_imovel", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_tipo_imovel_propriedade_id_propriedade",
-                        column: x => x.id_propriedade,
-                        principalTable: "propriedade",
+                        name: "FK_propriedade_tipo_situacao_tipoSituacao_idTipoSituacao",
+                        column: x => x.idTipoSituacao,
+                        principalTable: "tipoSituacao",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_endereco_id_propriedade",
+                name: "IX_endereco_idPropriedade",
                 table: "endereco",
-                column: "id_propriedade",
+                column: "idPropriedade",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_imagem_id_Propriedade",
+                name: "IX_imagem_idPropriedade",
                 table: "imagem",
-                column: "id_Propriedade");
+                column: "idPropriedade");
 
             migrationBuilder.CreateIndex(
-                name: "IX_propriedade_id_usuario",
+                name: "IX_propriedade_idTipoImovel",
                 table: "propriedade",
-                column: "id_usuario");
+                column: "idTipoImovel");
 
             migrationBuilder.CreateIndex(
-                name: "IX_propriedade_tipo_situacao_id_propriedade",
+                name: "IX_propriedade_idUsuario",
+                table: "propriedade",
+                column: "idUsuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_propriedade_tipo_situacao_idpropriedade",
                 table: "propriedade_tipo_situacao",
-                column: "id_propriedade");
+                column: "idpropriedade");
 
             migrationBuilder.CreateIndex(
-                name: "IX_propriedade_tipo_situacao_id_Tipo_situacao",
+                name: "IX_propriedade_tipo_situacao_idTipoSituacao",
                 table: "propriedade_tipo_situacao",
-                column: "id_Tipo_situacao");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_tipo_imovel_id_propriedade",
-                table: "tipo_imovel",
-                column: "id_propriedade",
-                unique: true);
+                column: "idTipoSituacao");
         }
 
         /// <inheritdoc />
@@ -199,13 +198,13 @@ namespace LagusImoveisWebII.Migrations
                 name: "propriedade_tipo_situacao");
 
             migrationBuilder.DropTable(
-                name: "tipo_imovel");
-
-            migrationBuilder.DropTable(
-                name: "tipo_situacao");
-
-            migrationBuilder.DropTable(
                 name: "propriedade");
+
+            migrationBuilder.DropTable(
+                name: "tipoSituacao");
+
+            migrationBuilder.DropTable(
+                name: "tipoImovel");
 
             migrationBuilder.DropTable(
                 name: "usuario");

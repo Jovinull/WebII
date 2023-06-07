@@ -1,21 +1,27 @@
-﻿using LagusImoveisWebII.Models.Entites;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+using System.Collections.Generic;
 
-namespace LagusImoveisWebII.Models.Dtos
+namespace LagusImoveisWebII.Models.Entites
 {
-    public class PropriedadeDto
+  
+    public class Propriedade : Base
     {
-
-        public int Id { get; set; }
-
         public string Descricao { get; set; }
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
 
         public List<Imagem> Imagem { get; set; }
         public List<PropriedadeTipoSituacao> PropriedadeTipoSituacao { get; set; }
+       
 
-
-        public int TipoImovelModelID { get; set; }
+        public int TipoImovelID { get; set; }
         public TipoImovel TipoImovel { get; set; }
+
+
+
+
+
     }
 }

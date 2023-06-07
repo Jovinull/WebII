@@ -5,12 +5,16 @@ using System.Collections.Generic;
 
 namespace LagusImoveisWebII.Models.Entites
 {
-   
-    public class Tipo_situacaoModel : Base
+ 
+    public class Imagem : Base
     {
-        public string Descricao { get; set; }
+        public byte[] Imagens { get; set; }
 
-        public List<Propriedade_tipo_situacaoModel> Propriedade_tipo_situacaoModel { get; set; }
+        public int PropriedadeId { get; set; }
+        public Propriedade Propriedade { get; set; }
+
+
 
     }
-}
+    }
+
