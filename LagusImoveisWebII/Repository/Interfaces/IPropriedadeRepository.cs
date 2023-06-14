@@ -8,5 +8,7 @@ namespace LagusImoveisWebII.Repository.Interfaces
     {
         //lista todas as propriedades
         Task<IEnumerable<PropriedadeDto>>GetPropriedadeAsync();
+
+
     }
 }

@@ -1,7 +1,8 @@
+using AutoMapper;
 using LagusImoveisWebII.Context;
 using LagusImoveisWebII.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson(Options => {
     Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
  });
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IPropriedadeRepository, PropriedadeRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
 builder.Services.AddDbContext<LagusImoveisWebIIContext>(options =>
 {

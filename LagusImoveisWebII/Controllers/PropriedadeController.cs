@@ -1,4 +1,7 @@
 ﻿
+using AutoMapper;
+using LagusImoveisWebII.Models.Dtos;
+using LagusImoveisWebII.Models.Entites;
 using LagusImoveisWebII.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +14,11 @@ namespace LagusImoveisWebII.Controllers
     {
         private readonly IPropriedadeRepository _repository;
        
+
         public PropriedadeController(IPropriedadeRepository repository) {
             
             _repository= repository;
-        
+            
         }
 
         [HttpGet]
@@ -22,9 +26,13 @@ namespace LagusImoveisWebII.Controllers
             var propriedades = await _repository.GetPropriedadeAsync();
 
             return propriedades.Any()
-                ? Ok(propriedades)
-               :BadRequest("Propriedade não encontrada") ;
+                   ? Ok(propriedades
+                   )
+           : BadRequest("Propriedade não encontrada");
         }
+
        
+
+
     }
 }

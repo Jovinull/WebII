@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LagusImoveisWebII",
-    "\\LagusImoveisWebII\\Maps"
+    "\\LagusImoveisWebII\\Maps",
+    "\\LagusImoveisWebII\\Repository",
+    "\\LagusImoveisWebII\\Repository\\Interfaces"
   ],
-  "SelectedNode": "\\LagusImoveisWebII\\Maps\\PropriedadeTipoSituacaoMaps.cs",
+  "SelectedNode": "\\LagusImoveisWebII\\Repository\\Interfaces\\PropriedadeRepository.cs",
   "PreviewInSolutionExplorer": false
 }

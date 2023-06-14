@@ -8,14 +8,14 @@ namespace LagusImoveisWebII.Models.Dtos
         public int Id { get; set; }
 
         public string Descricao { get; set; }
-        public int UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }
+        
+        public List<ImagemDto> Imagem { get; set; }
 
-        public List<Imagem> Imagem { get; set; }
-        public List<PropriedadeTipoSituacao> PropriedadeTipoSituacao { get; set; }
+        public TipoImovelDto TipoImovel { get; set; }
 
+        public List<TipoSituacaoDto> TipoSituacao{ get; set; }
 
-        public int TipoImovelModelID { get; set; }
-        public TipoImovel TipoImovel { get; set; }
+        public EnderecoDto Endereco { get; set; }
+
     }
 }
