@@ -166,6 +166,7 @@ C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Newtonso
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\gabri\Videos\ATUALIZADOWEB2\LagusImoveisWebII\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+<<<<<<< HEAD
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\bin\Debug\net6.0\appsettings.json
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\bin\Debug\net6.0\LagusImoveisWebII.exe
@@ -226,3 +227,5 @@ C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\obj\Debug\net6.0\refint\Lagus
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\obj\Debug\net6.0\LagusImoveisWebII.pdb
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\obj\Debug\net6.0\LagusImoveisWebII.genruntimeconfig.cache
 C:\Users\gabri\Videos\WebII-main\LagusImoveisWebII\obj\Debug\net6.0\ref\LagusImoveisWebII.dll
+=======
+>>>>>>> 6f52f6a132138ad9aa770396aeb6d26fdc09cdf9

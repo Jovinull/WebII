@@ -19,7 +19,9 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.Nome).HasColumnName("nome").HasColumnType("varchar(20)").IsRequired();
             builder.Property(x => x.Sobrenome).HasColumnName("sobrenome").HasColumnType("varchar(30)").IsRequired();
             builder.Property(x => x.Email).HasColumnName("email").HasColumnType("varchar(40)").IsRequired();
+
             builder.Property(x => x.Telefone).HasColumnName("telefone").HasColumnType("varchar(11)").IsRequired();
+
             builder.Property(x => x.Senha).HasColumnName("senha").HasColumnType("varchar(8)").IsRequired();
        
         }

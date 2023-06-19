@@ -11,3 +11,4 @@
         public List<PropriedadeDetalhesDto> Propriedade { get; set; }
     }
 }
+

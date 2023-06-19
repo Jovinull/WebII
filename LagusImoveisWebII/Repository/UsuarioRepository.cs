@@ -19,7 +19,6 @@ namespace LagusImoveisWebII.Repository.Interfaces
         {
             return await _context.UsuarioSet.Include(x => x.Propriedade)
                          .ThenInclude(c => c.PropriedadeTipoSituacao)
-                        //.ThenInclude(c => c.Imagem)
                         .Where(x => x.Id == id).FirstOrDefaultAsync();
         }
     }

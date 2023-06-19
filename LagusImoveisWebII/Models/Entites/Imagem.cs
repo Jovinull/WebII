@@ -16,5 +16,9 @@ namespace LagusImoveisWebII.Models.Entites
 
 
     }
-    }
+}
+
+
+
+
 

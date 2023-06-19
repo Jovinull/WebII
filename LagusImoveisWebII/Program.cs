@@ -1,5 +1,6 @@
 using AutoMapper;
 using LagusImoveisWebII.Context;
+using LagusImoveisWebII.Repository;
 using LagusImoveisWebII.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(Options => {
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IPropriedadeRepository, PropriedadeRepository>();
+
 
 
 builder.Services.AddDbContext<LagusImoveisWebIIContext>(options =>
