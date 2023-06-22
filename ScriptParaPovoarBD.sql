@@ -1,18 +1,11 @@
 INSERT INTO public.usuario(
 	id, nome, sobrenome, email, telefone, senha)
-<<<<<<< HEAD
 VALUES (1, 'Gabriella', 'Ostra', 'Gabriella@gmail.com', '659990000', 'a00a00a'),
 		(2, 'Jovino', 'santos', 'Jovino@gmail.com', '669990000', 'a00a00a'),
 		(3, 'Italo', 'Mattos', 'Italo@gmail.com', '819990000', 'a00a00a'),
 		(4, 'Chico', 'chicco', 'Chico@gmail.com', '719990000', 'a00a00a'),
 		(5, 'Pérola', 'Ostra', 'Perola@gmail.com', '799990000', 'a00a00a');
-=======
-VALUES (1, 'Gabriella', 'Ostra', 'Gabriella@gmail.com', 659990000, 'a00a00a'),
-		(2, 'Jovino', 'santos', 'Jovino@gmail.com', 669990000, 'a00a00a'),
-		(3, 'Italo', 'Mattos', 'Italo@gmail.com', 819990000, 'a00a00a'),
-		(4, 'Chico', 'chicco', 'Chico@gmail.com', 719990000, 'a00a00a'),
-		(5, 'Pérola', 'Ostra', 'Perola@gmail.com', 799990000, 'a00a00a');
->>>>>>> 6f52f6a132138ad9aa770396aeb6d26fdc09cdf9
+
 
 INSERT INTO public."tipoImovel"(
 	id, descricao)
@@ -40,21 +33,13 @@ INSERT INTO public.imagem(
 
 INSERT INTO public.endereco(
 	id, rua, numero, cep, bairro, estado, cidade, "idPropriedade")
-<<<<<<< HEAD
 	VALUES (1, 'Av. BotaFogo', '444', '00000000',  'centro', 'Sergipe' , 'Simão-Dias', 1),
 	(2, 'Av. Manuel', '111', '11111111',  'centro',  'Bahia', 'Camaçari', 2),
 	(3, 'Av. Gato', '10', '22222222',  'centro', 'Acre', 'Jordão', 3),
 	(4, 'Av. Lima', '65', '33333333', 'centro', 'Rio de Janeiro',  'Duque de Caxias', 4),
 	(5, 'Av. Guerra', '8', '44444444',  'centro', 'Rio de Janeiro',  'Duque de Caxias', 5),
 	(6, 'Av. Palmeiras', '10', '55555555',  'centro', 'Sergipe',  'Simão-Dias',6);
-=======
-	VALUES (1, 'Av. BotaFogo', 444, 00000000,  'centro', 'Sergipe' , 'Simão-Dias', 1),
-	(2, 'Av. Manuel', 111, 11111111,  'centro',  'Bahia', 'Camaçari', 2),
-	(3, 'Av. Gato', 10, 222222222,  'centro', 'Acre', 'Jordão', 3),
-	(4, 'Av. Lima', 65, 33333333, 'centro', 'Rio de Janeiro',  'Duque de Caxias', 4),
-	(5, 'Av. Guerra', 8, 44444444,  'centro', 'Rio de Janeiro',  'Duque de Caxias', 5),
-	(6, 'Av. Palmeiras', 10, 55555555,  'centro', 'Sergipe',  'Simão-Dias',6);
->>>>>>> 6f52f6a132138ad9aa770396aeb6d26fdc09cdf9
+
 
 INSERT INTO public."tipoSituacao"(
 	id, descricao)
@@ -73,7 +58,3 @@ INSERT INTO public.propriedade_tipo_situacao(
 	(4, 870, 4, 4),
 	(5, 1000, 5, 5),
 	(6, 700, 6, 6);
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f52f6a132138ad9aa770396aeb6d26fdc09cdf9
