@@ -1,0 +1,63 @@
+.cabecalho {
+  background: url(/assets/imagens/fundo-cabecalho.png);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cabecalho .logo {
+  padding: 0.5rem 6rem;
+}
+
+.cabecalho .logo img {
+  width: 70%;
+  max-width: 300px;
+}
+
+.cabecalho .imagem{
+  width: 40%;
+}
+
+.cabecalho p {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+@media (max-width: 576px) {
+  .cabecalho .logo {
+    padding: 2rem;
+  }
+  .cabecalho p {
+    font-size: 1.5rem
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho .logo {
+    width: 90%;
+  }
+  .cabecalho .imagem {
+    display: none;
+  }
+}
+
+.botao {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 32px; /* Ajuste o tamanho da fonte de acordo com suas preferências */
+  margin-right: 10px; /* Ajuste a margem direita para controlar o espaçamento horizontal entre os botões */
+  margin-bottom: 10px; /* Ajuste a margem inferior para controlar o espaçamento vertical entre os botões */
+}
+
+.botao:first-child {
+  margin-right: 0; /* Remove a margem direita do primeiro botão */
+}
+
+.div-acoes {
+  display: flex;
+  justify-content: space-between;
+}
+

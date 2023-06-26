@@ -8,8 +8,5 @@ namespace LagusImoveisWebII.Repository.Interfaces
     {
         //lista todos os dados do usuário
         Task<Usuario> GetUsuarioByIdAsync(int id);
-
-
-
     }
 }

@@ -2,6 +2,8 @@
 using LagusImoveisWebII.Models.Dtos;
 using LagusImoveisWebII.Models.Entites;
 using LagusImoveisWebII.Repository.Interfaces;
+using LagusImoveisWebII.Repository.WebApi.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LagusImoveisWebII.Controllers
@@ -85,8 +87,14 @@ namespace LagusImoveisWebII.Controllers
                 ? Ok("Usuário atualizado com sucesso")
                 : BadRequest("Erro ao atualizar o usuário");
         }
+<<<<<<< HEAD
 
 
 
+=======
+        
+>>>>>>> e7b55a80a3d5a1d800132a47dcce74b8280a6be1
     }
-}
+       
+    }
+
