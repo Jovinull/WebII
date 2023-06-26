@@ -10,5 +10,6 @@ namespace LagusImoveisWebII.Models.Dtos
         public List<PropriedadeTipoSituacaoDto> PropriedadeTipoSituacao { get; set; }
         public TipoImovelDto TipoImovel { get; set; }
 
+
     }
 }

@@ -17,9 +17,15 @@ namespace LagusImoveisWebII.Repository.Interfaces
 
         public async Task<Usuario> GetUsuarioByIdAsync(int id)
         {
-            return await _context.UsuarioSet.Include(x => x.Propriedade)
-                         .ThenInclude(c => c.PropriedadeTipoSituacao)
-                        .Where(x => x.Id == id).FirstOrDefaultAsync();
+            return await _context.UsuarioSet
+         .Include(x => x.Propriedade)
+             .ThenInclude(x => x.PropriedadeTipoSituacao)
+              .ThenInclude(x => x.TipoSituacao)
+         .Include(x => x.Propriedade)
+             .ThenInclude(x => x.Imagem)
+         .Include(x => x.Propriedade)
+             .ThenInclude(x => x.TipoImovel)
+         .FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

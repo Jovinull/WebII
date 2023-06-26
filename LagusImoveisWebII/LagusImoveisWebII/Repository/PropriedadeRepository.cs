@@ -20,7 +20,7 @@ namespace LagusImoveisWebII.Repository
         {
             return await _context.PropriedadeSet
                 .Include(x => x.PropriedadeTipoSituacao)
-                //.ThenInclude( x => x.TipoSituacao)
+                .ThenInclude( x => x.TipoSituacao)
                 .Include(x => x.Imagem)
                 .Include(x => x.TipoImovel)
                 .ToListAsync();

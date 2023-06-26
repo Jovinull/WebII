@@ -14,6 +14,7 @@ namespace LagusImoveisWebII.Models.Dtos
 
         public int TipoImovelID { get; set; }
         public TipoImovel TipoImovel { get; set; }
+        
 
     }
 }

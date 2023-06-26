@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LagusImoveisWebII"
+    "\\LagusImoveisWebII",
+    "\\LagusImoveisWebII\\LagusImoveisWebII",
+    "\\LagusImoveisWebII\\LagusImoveisWebII\\Controllers",
+    "\\LagusImoveisWebII\\LagusImoveisWebII\\Helpers",
+    "\\LagusImoveisWebII\\LagusImoveisWebII\\Repository",
+    "\\LagusImoveisWebII\\LagusImoveisWebII\\Repository\\Interfaces"
   ],
-  "SelectedNode": "\\LagusImoveisWebII\\LagusImoveisWebII.sln",
+  "SelectedNode": "\\LagusImoveisWebII\\LagusImoveisWebII\\Controllers\\PropriedadeControllers.cs",
   "PreviewInSolutionExplorer": false
 }

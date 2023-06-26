@@ -66,7 +66,10 @@ namespace LagusImoveisWebII.Controllers
                  : BadRequest("Erro ao deletar o usuario");
         }
 
-        //atualizar dados do usuario
+
+
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, UsuarioAtualizarDto usuario)
         {
@@ -74,14 +77,15 @@ namespace LagusImoveisWebII.Controllers
 
             var usuarioBanco = await _repository.GetUsuarioByIdAsync(id);
 
-            var usuarioAtualizar = _mapper.Map(usuario, usuarioBanco);
+            var UsuarioAtualizar = _mapper.Map(usuario, usuarioBanco);
 
-            _repository.Update(usuarioAtualizar);
+            _repository.Update(UsuarioAtualizar);
 
             return await _repository.SaveChangesAsync()
-                 ? Ok("Usuario atualizado com sucesso")
-                 : BadRequest("Erro ao atualizar o usuario");
+                ? Ok("Usuário atualizado com sucesso")
+                : BadRequest("Erro ao atualizar o usuário");
         }
+
 
 
     }
