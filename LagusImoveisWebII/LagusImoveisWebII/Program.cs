@@ -19,6 +19,12 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPropriedadeRepository, PropriedadeRepository>();
+//
+builder.Services.AddScoped<IImagemRepository, ImagemRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddScoped<IPropriedadeTipoSituacaoRepository, PropriedadeTipoSituacaoRepository>();
+builder.Services.AddScoped<ITipoSituacaoRepository, TipoSituacaoRepository>();
+builder.Services.AddScoped<ITipoImovelRepository, TipoImovelRepository>();
 
 
 

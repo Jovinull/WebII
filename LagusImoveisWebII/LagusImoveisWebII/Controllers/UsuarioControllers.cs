@@ -87,13 +87,6 @@ namespace LagusImoveisWebII.Controllers
                 ? Ok("Usuário atualizado com sucesso")
                 : BadRequest("Erro ao atualizar o usuário");
         }
-<<<<<<< HEAD
-
-
-
-=======
-        
->>>>>>> e7b55a80a3d5a1d800132a47dcce74b8280a6be1
     }
        
     }
