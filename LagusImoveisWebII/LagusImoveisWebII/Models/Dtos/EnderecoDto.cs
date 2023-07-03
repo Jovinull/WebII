@@ -1,7 +1,8 @@
-﻿namespace LagusImoveisWebII.Models.Entites
+﻿namespace LagusImoveisWebII.Models.Dtos
 {
-    public class Endereco : Base
+    public class EnderecoDto
     {
+        public int id { get; set; }
         public string Rua { get; set; }
 
         public string Numero { get; set; }
@@ -10,8 +11,6 @@
         public string Bairro { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
-
-
 
     }
 }

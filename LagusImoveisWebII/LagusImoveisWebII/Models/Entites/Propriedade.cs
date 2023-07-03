@@ -19,6 +19,9 @@ namespace LagusImoveisWebII.Models.Entites
         public int TipoImovelID { get; set; }
         public TipoImovel TipoImovel { get; set; }
 
+        public int EnderecoId { get; set; }
+        public Endereco Endereco { get; set; }
+
 
 
 

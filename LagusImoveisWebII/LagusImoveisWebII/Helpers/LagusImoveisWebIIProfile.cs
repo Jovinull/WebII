@@ -10,6 +10,8 @@ namespace LagusImoveisWebII.Helpers
         public LagusImoveisWebIIProfile()
         {
             CreateMap<Usuario, UsuarioDetalhesDto>().ReverseMap();
+            CreateMap<PropriedadeDto, Propriedade>();
+            CreateMap<Propriedade, PropriedadeDto>();
             CreateMap<PropriedadeDetalhesDto, Propriedade>()
                 .ForMember(dest => dest.PropriedadeTipoSituacao, opt => opt.Ignore());
             CreateMap<Propriedade, PropriedadeDetalhesDto>()
@@ -18,13 +20,13 @@ namespace LagusImoveisWebII.Helpers
 
             CreateMap<UsuarioAdicionarDto, Usuario>();
             CreateMap<UsuarioAtualizarDto, Usuario>()
-            
+
                .ForAllMembers(x => x.Condition((src, dest, prop) =>
-            {
-                if (prop == null) return false;
-                if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
-                return true;
-            }));
+               {
+                   if (prop == null) return false;
+                   if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
+                   return true;
+               }));
 
             //.ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
@@ -42,7 +44,7 @@ namespace LagusImoveisWebII.Helpers
             CreateMap<UsuarioAdicionarDto, Usuario>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
-           
+
             CreateMap<PropriedadeTipoSituacao, PropriedadeTipoSituacaoDto>();
             CreateMap<TipoSituacao, TipoSituacaoDto>();
 

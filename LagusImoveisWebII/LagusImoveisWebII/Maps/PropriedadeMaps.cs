@@ -28,9 +28,11 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.TipoImovelID).HasColumnName("idTipoImovel");
             builder.HasOne(x => x.TipoImovel).WithMany(x => x.Propriedade).HasForeignKey(x => x.TipoImovelID).IsRequired();
 
-
+            builder.Property(x => x.EnderecoId).HasColumnName("idEndereco").IsRequired();
+            builder.HasOne(x => x.Endereco).WithOne().HasForeignKey<Propriedade>(x => x.EnderecoId).IsRequired();
 
 
         }
     }
 }
+

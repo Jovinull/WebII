@@ -23,6 +23,8 @@ namespace LagusImoveisWebII.Repository.Interfaces
               .ThenInclude(x => x.TipoSituacao)
          .Include(x => x.Propriedade)
              .ThenInclude(x => x.Imagem)
+              .Include(x => x.Propriedade)
+             .ThenInclude(x => x.Endereco)
          .Include(x => x.Propriedade)
              .ThenInclude(x => x.TipoImovel)
          .FirstOrDefaultAsync(x => x.Id == id);

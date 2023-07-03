@@ -26,8 +26,7 @@ namespace LagusImoveisWebII.Maps
             builder.Property(x => x.Cidade).HasColumnName("cidade").HasColumnType("varchar(20)").IsRequired();
 
 
-            builder.Property(x => x.PropriedadeId).HasColumnName("idPropriedade").IsRequired();
-            builder.HasOne(x => x.Propriedade).WithOne().HasForeignKey<Endereco>(x => x.PropriedadeId).IsRequired();
+
 
 
 
