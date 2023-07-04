@@ -1,0 +1,52 @@
+.descricao-componente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudo {
+  text-align: right;
+  margin-right: 20px; /* Ajuste a margem direita conforme necessário */
+  margin-left: 20px; /* Ajuste a margem esquerda conforme necessário */
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 32px; /* Ajuste o tamanho da fonte conforme necessário */
+  font-family: 'Nome da Fonte', sans-serif; /* Substitua 'Nome da Fonte' pela fonte desejada */
+
+}
+
+.texto-direita {
+  font-size: 32px;
+}
+
+.texto-direita p:first-child {
+  margin-bottom: 20px; /* Adicione espaço entre o primeiro parágrafo e o segundo */
+}
+
+.texto-direita p {
+  margin-bottom: 20px; /* Adicione espaço entre todos os parágrafos dentro de .texto-direita */
+}
+
+.texto-direita {
+  margin-right: 16vw; /* Adicione uma margem esquerda de 5% da largura da tela */
+  margin-left: 4vw; /* Adicione uma margem esquerda de 5% da largura da tela */
+}
+
+.logo-esquerda {
+  margin-left: 4vw; /* Adicione uma margem esquerda de 5% da largura da tela */
+}
+
+h3 {
+  margin-top: 20px; /* Adicione espaço acima do título */
+  margin-bottom: 20px; /* Adicione espaço abaixo do título */
+}
+
+.logo-esquerda {
+  margin-right: 120px; /* Adicione uma margem direita para separar da div .texto-direita */
+}
+
+.logo img {
+  max-width: 100px; /* Ajuste o tamanho da logo conforme necessário */
+}
