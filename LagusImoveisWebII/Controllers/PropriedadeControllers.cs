@@ -25,10 +25,12 @@ namespace LagusImoveisWebII.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var propriedades = await _repository.GetPropriedadeAsync();
+            var propriedades = await _repository.GetPropriedadeTodosAsync();
             var propriedadesRetorno = _mapper.Map<IEnumerable<PropriedadeDto>>(propriedades);
 
-            return propriedadesRetorno.Any() ? Ok(propriedadesRetorno) : NotFound();
+            return propriedadesRetorno.Any()
+                ? Ok(propriedadesRetorno)
+                : BadRequest("Dados  não encontrado.");
         }
 
         // Retorna uma propriedade pelo ID
@@ -41,7 +43,21 @@ namespace LagusImoveisWebII.Controllers
             var propriedade = await _repository.GetPropriedadeById(id);
             var propriedadeRetorno = _mapper.Map<PropriedadeDto>(propriedade);
 
-            return propriedadeRetorno != null ? Ok(propriedadeRetorno) : NotFound();
+            return propriedadeRetorno != null 
+                ? Ok(propriedadeRetorno) 
+                :  BadRequest("Dados  não encontrado.");
+        }
+
+        //Filtro
+        [HttpGet("filter")]
+        public async Task<IActionResult> Get([FromQuery]PropriedadeParamsDto parametro)
+        {
+            var propriedades = await _repository.GetPropriedadeAsync(parametro);
+            var propriedadesRetorno = _mapper.Map<IEnumerable<PropriedadeDto>>(propriedades);
+
+            return propriedadesRetorno.Any()
+                ? Ok(propriedadesRetorno) 
+                : BadRequest("Dados  não encontrado.");
         }
     }
 }

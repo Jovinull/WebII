@@ -29,7 +29,7 @@ namespace LagusImoveisWebII.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var propriedades = await _repository.GetPropriedadeAsync();
+            var propriedades = await _repository.GetPropriedadeTodosAsync();
             var propriedadesRetorno = _mapper.Map<IEnumerable<PropriedadeDetalhesDto>>(propriedades);
 
             return propriedadesRetorno.Any() ? Ok(propriedadesRetorno) : NotFound();
@@ -104,7 +104,7 @@ namespace LagusImoveisWebII.Controllers
 
             return await _repository.SaveChangesAsync()
                  ? Ok("Propriedade deletada com sucesso")
-                 : BadRequest("Erro ao deletar o Propriedade");
+                 : BadRequest("Erro ao deletar");
         }
 
     }
